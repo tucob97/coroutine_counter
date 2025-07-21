@@ -16,7 +16,8 @@ The coroutine implemented has this characteristic:
 - Use "yield" for scheduling between coroutines
 
 ## How to run example?
-I personally use Taskfile, so if you have it installed
+I personally like to use Taskfile. However command are simple
+and you can actually read inside the Taskfile.yml file.
 
 The default task is the coroutine implementation of counter function
 ```bash
