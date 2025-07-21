@@ -1,0 +1,3 @@
+*.o
+counter_seq
+counter_coro
