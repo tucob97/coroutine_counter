@@ -68,6 +68,7 @@ counter:
 # =========================
 # Print Number in %rdi
 # =========================
+# print_number and .L2 are compile generated from C
 
 print_number:
     movq $-3689348814741910323, %r9
