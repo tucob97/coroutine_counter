@@ -12,8 +12,8 @@ implemented in assembly language using low-level stack manipulation.
 
 
 The coroutine implemented has this characteristic:
-- Stackful coroutine with 4 KB stack space
-- Use "yield" for scheduling between coroutines
+- Stackful coroutine with 4 KB stack space each
+- Scheduling coroutines using Round-Robin
 
 ## How to run example?
 I personally like to use Taskfile. However command are simple
