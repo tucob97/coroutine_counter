@@ -7,7 +7,6 @@ coroutine_finish_msg:
 coroutine_finish_msg_len = . - coroutine_finish_msg
 
 .section .bss
-.align 16
 contexts_rsp:       .skip 8 * 10
 contexts_rbp:       .skip 8 * 10
 contexts_rip:       .skip 8 * 10
