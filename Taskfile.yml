@@ -1,0 +1,19 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+
+tasks:
+  default:
+    cmds:
+      - gcc counter_coro.s -c -g
+      - ld -o counter_coro counter_coro.o
+      - ./counter_coro
+
+  
+  seq:
+    cmds:
+      - gcc sequential.s -c -g
+      - ld -o counter_seq sequential.o
+      - ./counter_seq
