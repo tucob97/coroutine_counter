@@ -113,8 +113,7 @@ print_number:
 # =========================
 
 coroutine_init:
-    # FIX: Read the return address without pop, and do a normal ret
-    # to keep the stack aligned and balanced.
+    # Read the return address without pop, and do a normal ret
     movq contexts_count(%rip), %rbx
     cmpq $10, %rbx
     jge overflow_fail
@@ -138,13 +137,13 @@ coroutine_go:
     subq $4096, %rax
     movq %rax, stacks_end(%rip)
 
-    # This setup is correct: when the new coroutine's function
+    # Setup: when the new coroutine's function
     # eventually returns, it will jump to coroutine_finish.
     subq $8, %rax
     movq $coroutine_finish, (%rax)
 
     movq %rax, contexts_rsp(, %rbx, 8)
-    movq %rax, contexts_rbp(, %rbx, 8) # Using stack top as base pointer is safer than 0
+    movq %rax, contexts_rbp(, %rbx, 8) 
     movq %rdi, contexts_rip(, %rbx, 8)
     ret
 
@@ -164,7 +163,7 @@ coroutine_yield:
     movq contexts_count(%rip), %rcx
     cmpq %rcx, %rbx
     jl .set_next
-    xorq %rbx, %rbx                         # Wrap around to 0
+    xorq %rbx, %rbx                         
 .set_next:
     movq %rbx, contexts_current(%rip)
 
